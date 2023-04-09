@@ -1,5 +1,7 @@
 package com.josevabo.infnetdevops.medico.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -10,6 +12,7 @@ import java.util.Objects;
 public class MedicoDto implements Serializable {
     private Long codigo;
     private String cpf;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
     private String nome;
     private String crm;

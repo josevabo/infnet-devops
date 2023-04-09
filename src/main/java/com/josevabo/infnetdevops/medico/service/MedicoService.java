@@ -30,7 +30,7 @@ public class MedicoService {
 
     public Medico create(Medico entidade) {
         logger.info("Criando medico de nome: {}", entidade.getNome());
-        if(entidade.getCodigo() != null) throw new IllegalArgumentException("codigo não pode ser informado ao criar medico");
+        if(entidade.getCodigo() != null) entidade.setCodigo(null);
         return repository.save(entidade);
     }
 }
