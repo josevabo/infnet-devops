@@ -33,4 +33,17 @@ public class MedicoService {
         if(entidade.getCodigo() != null) entidade.setCodigo(null);
         return repository.save(entidade);
     }
+
+    public Medico update(Medico entidade) {
+        logger.info("Atualizando medico de nome: {}", entidade.getNome());
+        if(entidade.getCodigo() == null) throw new IllegalArgumentException("Código do médico não informado");
+        return repository.save(entidade);
+    }
+
+    public Medico delete(Long codigo) {
+        logger.info("Deletando medico de codigo: {}", codigo);
+        Medico deletado = repository.findByCodigo(codigo);
+        repository.deleteById(codigo);
+        return deletado;
+    }
 }
