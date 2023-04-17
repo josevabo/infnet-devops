@@ -1,0 +1,18 @@
+<configuration>
+    <appender name="PAPERTRAIL" class="ch.qos.logback.classic.net.SyslogAppender">
+        <syslogHost>logs6.papertrailapp.com</syslogHost>
+        <port>33862</port>
+        <facility>USER</facility>
+        <suffixPattern>infnet-devops-app: %logger %msg</suffixPattern>
+    </appender>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="PAPERTRAIL" />
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
